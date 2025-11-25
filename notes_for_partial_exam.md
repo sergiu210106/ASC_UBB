@@ -117,7 +117,7 @@ doubleword => 7D 00 00 00
 b db 2 -> 02   
 c db 1,2,3,4 -> 01 02 03 04  
 d db '1234' -> 31 32 33 34 (the ascii code of '1' is 31 in hexadecimal notation)  
-e db '1,2,3,4' -> 31 2C 32 2C 33 2C 34 (the ascii code of ',' is 2C in hexadecimal notation)
+e db '1,2,3,4' -> 31 2C 32 2C 33 2C 34 (the ascii code of ',' is 2C in hexadecimal notation)  
 f db '1',',','2' -> 31 2C 32  
 g dw 'a' -> 61 00  ('a' = 61h)
 
@@ -206,9 +206,9 @@ Answer: 4 + 2 * 2 + 3 * 4 + 4 * 8 + 1 * 10 = 62 bytes
 Memory layout: 22 22 02 00 10 00   
 mov ax, [a] -> ax : 22 22h   
 mov bx, 4 -> bx: 00 04h  
-add bx, ax -> bx: 22 26h
-mov ax, [b+1] -> ax: 00 02 
-add ax, [c+1] -> ax: 00 02 + 10 00 = 10 02h
+add bx, ax -> bx: 22 26h  
+mov ax, [b+1] -> ax: 00 02   
+add ax, [c+1] -> ax: 00 02 + 10 00 = 10 02h  
 mov [c], ax -> c = 10 02h
 
 ### _10. What value will be in the AX register after running the following code, if variable a is a word, b,c and d are bytes and a=5, b=9, c=4, d=3?_ 
@@ -220,7 +220,7 @@ mov [c], ax -> c = 10 02h
     add bx, [c] 
     add ax, bx 
 
-memory layout: 05 00 09 04 03
+memory layout: 05 00 09 04 03  
 mov ax, [a] -> ax: 00 05h    
 add ax, 20 -> ax: 00 19h   
 mov bx, [b]  -> bx: 04 09    
@@ -252,3 +252,5 @@ Only letters, _ and ? are allowed as the first character of a tag.
     a5# db 33h  -> ok
     ?a6 dw 233h -> ok
     a7~ db 1233h -> ok
+
+
