@@ -1,0 +1,35 @@
+     1                                  ; asamblare 			nasm -fobj exemplu.asm
+     2                                  ; linkeditare 			alink -oPE -subsys console -entry start exemplu.obj
+     3                                  ; depanare  			ollydbg exemplu.exe
+     4                                  ; programe necesare 	http://www.nasm.us + alink: alink.sourceforge.net/download.html + http://www.ollydbg.de
+     5                                  
+     6                                  bits 32
+     7                                  
+     8                                  global start
+     9                                  extern ExitProcess, printf
+    10                                  import ExitProcess kernel32.dll
+    11                                  import printf msvcrt.dll
+    12                                  
+    13                                  segment code use32 class=CODE
+    14 00000000 01                          a db 1
+    15 00000001 02                          b db 2
+    16 00000002 0300                        c dw 3
+    17 00000004 0400                        d dw 4
+    18                                  
+    19                                      ; (b + d) - (a + c)
+    20                                  
+    21                                  
+    22                                  
+    23                                  start:
+    24 00000006 A0[01000000]                mov AL, [b]
+    25 0000000B B400                        mov AH, 0
+    26 0000000D 660305[04000000]            add AX, [d] ; AX = b + d
+    27                                  
+    28 00000014 8A0D[00000000]              mov CL, [a]
+    29 0000001A B500                        mov CH, 0
+    30 0000001C 66030D[02000000]            add CX, [c]
+    31 00000023 6629C8                      sub AX, CX  
+    32                                  
+    33                                  segment data use32 class=DATA
+    34 00000000 4D6573616A210D0A00          msg: db "Mesaj!", 13, 10, 0
+    35                                      

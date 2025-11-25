@@ -1,0 +1,25 @@
+     1                                  bits 32
+     2                                  ; c - (b-a) + 3 + d 
+     3                                  global start
+     4                                  
+     5                                  segment code use32 class=data
+     6                                  
+     7 00000000 0100                        a dw 1
+     8 00000002 02                          b db 2
+     9 00000003 0300                        c dw 3
+    10 00000005 04                          d db 4
+    11                                      
+    12                                  start:
+    13 00000006 B400                        mov AH, 0
+    14 00000008 A0[02000000]                mov AL, [b] ; b in word in AX
+    15                                      
+    16 0000000D 662B05[00000000]            sub AX, [a] ; b - a in AX
+    17                                      
+    18 00000014 668B1D[03000000]            mov BX, [c] ; c in BX
+    19 0000001B 6629C3                      sub BX, AX ; c - (b-a) in BX
+    20 0000001E 6683C303                    add BX, 3 ; c-(b-a)+3 in BX
+    21                                      
+    22 00000022 B600                        mov DH, 0
+    23 00000024 8A15[05000000]              mov DL, [d] ; d in word in BX
+    24                                      
+    25 0000002A 6601D3                      add BX, DX ; final answer in BX
