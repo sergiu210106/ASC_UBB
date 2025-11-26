@@ -238,10 +238,11 @@ add ax, bx -> ax: 03 22h
     a5# db 33h 
     ?a6 dw 233h 
     a7~ db 1233h 
-The characters from which a label can be constituted are the following:
-    - letters, both a-z and A-Z
-    - numbers 0-9
-    - the characters _, $, #, @, !, . and ? 
+The characters from which a label can be constituted are the following:  
+    - letters, both a-z and A-Z  
+    - numbers 0-9  
+    - the characters _, $, #, @, !, . and ?   
+
 Only letters, _ and ? are allowed as the first character of a tag.
 
     a0 db 10b -> ok
@@ -252,5 +253,128 @@ Only letters, _ and ? are allowed as the first character of a tag.
     a5# db 33h  -> ok
     ?a6 dw 233h -> ok
     a7~ db 1233h -> ok
+
+## Exercises 
+
+### _12. What is the effect of the execution of the instruction_
+    mov ax, [b-1]
+### _and_ 
+    mov ax, [b+1] 
+### _if we have defined:_
+    a dw 1A2Bh
+    b db 3Bh 
+    c db 9h 
+
+Memory representation: 2B 1A 3B 09  
+mov ax, [b-1] => ax: 3B 1A  
+mov ax, [b+1] => ax: xx 09, we are accessing the byte after 09 in the memory which is not set/known   
+
+### _13. What is the effect of the execution of the instruction_
+    mov ax, [b-1]
+### _and_ 
+    mov ax, [b+1] 
+### _if we have defined:_
+    a dw 1A2Bh 
+    b db 3Bh, 4Bh 
+    c dd 1A2B3C4Dh
+
+Memory representation: 2B 1A 3B 4B 4D 3C 2B 1A  
+mov ax, [b-1] => ax : 3B 1Ah   
+mov ax, [b+1] => ax : 4D 4Bh   
+
+
+# **Multiplications and divisions**
+
+### _1. What will be the result of running the following code where:_
+    a. a,b,c are variables of type word, a=8, b=6, c=3 
+
+    mov ax, [a] 
+    add ax, [b] 
+    div [c] 
+
+Memory layout: 08 00 06 00 03 00  
+mov ax, [a] => ax: 00 08
+add ax, [b] => ax: 00 0Eh
+div [c] => c is a word, so we divide dx:ax to the number and we get the quotient in ax and the remainder in dx   
+since we do not know what dx is, we can't tell the result from the code   
+if we take dx to be 0, then the result will be that in ax we would have 14/3 = 00 04 and in dx 00 02  
+  
+    b. a,b are variables of type word where a=8, b=6
+    mov ax, [a] 
+    add ax, [b] 
+    div 2
+
+We cannot divide directly by a constant! The _div_ instruction can only take as operand a register or memory address!
+
+    c. What will be the result of the following code if a is a variable of type word, a = 513 and byte b = 2
+    mov ax, [a] 
+    mov bl, [b] 
+    div bl 
+
+Memory layout: 01 02 02   
+mov ax, [a] => ax : 02 01   
+mov bl, [b] => bl : 02   
+We divide by a byte => we get the quotient in al and the remainder in ah   
+- 513 / 2 = 256   
+- 513 % 2 = 1
+
+256 doesn't fit on 8 bits in al so we get an overflow error
+
+# **Conversions - signed, unsigned** 
+### _1. What will be the result of the following instruction:_
+    mov al, 128 
+    cbw 
+    mov bl, 2 
+    div bl
+
+mov al, 128 -> al: 1000 0000   
+cbw => ax: 1111 1111 1000 0000   
+ax / 2 : 0111 1111 1100 0000 does not fit in al => overflow, execution error   
+ax % 2 : 0  
+
+# **Array Lengths** 
+1. Considering the variables, which of the length definitions is correct (returns the correct length value for A and B)?
+``` 
+a db 1, 2, 3, 4, 5
+lenA1 equ $-a
+b db 1, 2, 3, 4, 5
+c dw 1, 2, 3, 4, 5
+
+lenB equ $-b
+lenC equ $-c
+lenC2 equ $-c/2
+lenC3 equ $-b-c
+```
+
+Correct values for lengths: 
+- A->5
+- B->5
+- C->5
+
+lenA1 - correct
+lenB - calculates lenC + lenB 
+lenC - calculates number of bytes => 10 incorrect
+lenC2 - missing paranthesis, syntax error
+lenC3 - does not raise syntax error but is not correct
+
+# **Bitwise Operators and instructions** 
+### _If x is abcdefgh and CF=k, where a-h and k are binary digits, then_
+    SHL X, 1 => x = bcdefgh0 and CF = a 
+    SHR X, 1 => x = 0abcdefg and CF = h
+    SAL X, 1 => x = bcdefgh0 and CF = 0, identical to SHL 
+    SAR X, 1 => x = aabcdefg and CF = h 
+    ROL X, 1 => x = bcdefgha and CF = a
+    ROR X, 1 => x = habcdefg and CF = h 
+    RCL X, 1 => x = bcdefghk and CF = a
+    RCR X, 1 => x = kabcdefg and CF = h
+
+    NOT reg/mem
+    
+
+
+
+
+
+
 
 
