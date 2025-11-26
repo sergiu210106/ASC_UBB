@@ -293,11 +293,11 @@ mov ax, [b+1] => ax : 4D 4Bh
     div [c] 
 
 Memory layout: 08 00 06 00 03 00  
-mov ax, [a] => ax: 00 08
-add ax, [b] => ax: 00 0Eh
-div [c] => c is a word, so we divide dx:ax to the number and we get the quotient in ax and the remainder in dx   
-since we do not know what dx is, we can't tell the result from the code   
-if we take dx to be 0, then the result will be that in ax we would have 14/3 = 00 04 and in dx 00 02  
+mov ax, [a] => ax: 00 08  
+add ax, [b] => ax: 00 0Eh  
+div [c] => c is a word, so we divide dx:ax to the number and we get the quotient in ax and the remainder in dx     
+since we do not know what dx is, we can't tell the result from the code     
+if we take dx to be 0, then the result will be that in ax we would have 14/3 = 00 04 and in dx 00 02    
   
     b. a,b are variables of type word where a=8, b=6
     mov ax, [a] 
@@ -351,11 +351,11 @@ Correct values for lengths:
 - B->5
 - C->5
 
-lenA1 - correct
-lenB - calculates lenC + lenB 
-lenC - calculates number of bytes => 10 incorrect
-lenC2 - missing paranthesis, syntax error
-lenC3 - does not raise syntax error but is not correct
+lenA1 - correct  
+lenB - calculates lenC + lenB   
+lenC - calculates number of bytes => 10 incorrect  
+lenC2 - missing paranthesis, syntax error  
+lenC3 - does not raise syntax error but is not correct 
 
 # **Bitwise Operators and instructions** 
 ### _If x is abcdefgh and CF=k, where a-h and k are binary digits, then_
@@ -369,7 +369,7 @@ lenC3 - does not raise syntax error but is not correct
     RCR X, 1 => x = kabcdefg and CF = h
 
     NOT reg/mem
-    
+
 
 
 
