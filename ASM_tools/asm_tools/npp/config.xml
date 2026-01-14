@@ -6,16 +6,16 @@
         <Replace name="    " />
     </FindHistory>
     <History nbMaxFile="10" inSubMenu="no" customLength="-1">
-        <File filename="D:\DOCS\UBB\ASC\asm_tools\npp\Plugins\Config\asm_template_ro_.asm" />
-        <File filename="D:\DOCS\UBB\ASC\examples\template_en.asm" />
-        <File filename="d:\DOCS\UBB\ASC\asm_tools\npp\Plugins\Config\asm_template.asm" />
-        <File filename="d:\DOCS\UBB\ASC\asm_tools\npp\Plugins\Config\asm_template_ro.asm" />
         <File filename="D:\work\check\test.asm" />
         <File filename="D:\DOCS\UBB\ASC\intrebari_TODOs.txt" />
         <File filename="D:\facultate\second_year\asc\ASM_tools\asm_tools\npp\exemplu.asm" />
         <File filename="D:\facultate\second_year\asc\seminars\seminar1\problem1.txt" />
         <File filename="D:\facultate\second_year\asc\seminars\problem1.asm" />
         <File filename="D:\facultate\second_year\asc\seminars\seminar1\hw.asm" />
+        <File filename="D:\facultate\second_year\asc\problems\lab3\hw.asm" />
+        <File filename="D:\facultate\second_year\asc\problems\test.asm" />
+        <File filename="D:\facultate\second_year\asc\problems\lab4\a12.asm" />
+        <File filename="D:\facultate\second_year\asc\problems\lab4\b4.asm" />
     </History>
     <GUIConfigs>
         <GUIConfig name="ToolBar" visible="yes">standard</GUIConfig>
@@ -24,7 +24,7 @@
         <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" replaceBySpace="yes" size="4" />
-        <GUIConfig name="AppPosition" x="820" y="380" width="1100" height="700" isMaximized="yes" />
+        <GUIConfig name="AppPosition" x="288" y="193" width="1100" height="700" isMaximized="yes" />
         <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20080426">no</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>
         <GUIConfig name="CheckHistoryFiles">no</GUIConfig>
@@ -57,13 +57,13 @@
         <GUIConfig name="MISC" fileSwitcherWithoutExtColumn="no" backSlashIsEscapeCharacterForSql="yes" newStyleSaveDlg="no" isFolderDroppedOpenFiles="no" docPeekOnTab="no" docPeekOnMap="no" />
         <GUIConfig name="searchEngine" searchEngineChoice="2" searchEngineCustom="" />
         <GUIConfig name="SmartHighLight" matchCase="no" wholeWordOnly="yes" useFindSettings="no" onAnotherView="no">yes</GUIConfig>
-        <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" bookMarkMargin="show" indentGuideLine="show" folderMarkStyle="box" lineWrapMethod="aligned" currentLineHilitingShow="show" scrollBeyondLastLine="no" disableAdvancedScrolling="no" wrapSymbolShow="hide" Wrap="yes" borderEdge="yes" edge="no" edgeNbColumn="80" zoom="11" zoom2="0" whiteSpaceShow="hide" eolShow="hide" borderWidth="2" smoothFont="no" />
-        <GUIConfig name="DockingManager" leftWidth="200" rightWidth="200" topHeight="200" bottomHeight="200">
-            <PluginDlg pluginName="AsmPlugin.dll" id="2" curr="3" prev="-1" isVisible="yes" />
+        <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" bookMarkMargin="show" indentGuideLine="show" folderMarkStyle="box" lineWrapMethod="aligned" currentLineHilitingShow="show" scrollBeyondLastLine="no" disableAdvancedScrolling="no" wrapSymbolShow="hide" Wrap="yes" borderEdge="yes" edge="no" edgeNbColumn="80" zoom="9" zoom2="0" whiteSpaceShow="hide" eolShow="hide" borderWidth="2" smoothFont="no" />
+        <GUIConfig name="DockingManager" leftWidth="200" rightWidth="200" topHeight="200" bottomHeight="306">
+            <PluginDlg pluginName="AsmPlugin.dll" id="2" curr="3" prev="-1" isVisible="no" />
             <ActiveTabs cont="0" activeTab="-1" />
             <ActiveTabs cont="1" activeTab="-1" />
             <ActiveTabs cont="2" activeTab="-1" />
-            <ActiveTabs cont="3" activeTab="0" />
+            <ActiveTabs cont="3" activeTab="-1" />
         </GUIConfig>
     </GUIConfigs>
     <ProjectPanels>

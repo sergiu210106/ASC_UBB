@@ -1,0 +1,49 @@
+     1                                  ; B4. A string of words S is given. Compute string D containing only high bytes multiple of 7 from string S.
+     2                                  ; If S = 1735h, 0778h, 0E20h => D = 07h, 0Eh
+     3                                  bits 32 ; assembling for the 32 bits architecture
+     4                                  
+     5                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     6                                  global start        
+     7                                  
+     8                                  ; declare external functions needed by our program
+     9                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    10                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    11                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    12                                  
+    13                                  ; our data is declared here (the variables needed by our program)
+    14                                  segment data use32 class=data
+    15 00000000 35177807200E150B42-         s dw 1735h, 0778h, 0E20h, 0B15h, 0042h 
+    15 00000009 00                 
+    16                                      len equ ($ - s) / 2
+    17 0000000A <res 00000005>              d resb len 
+    18 0000000F 07                          divisor db 7
+    19                                  
+    20                                  ; our code starts here
+    21                                  segment code use32 class=code
+    22                                      start:
+    23 00000000 BE[00000000]                    mov esi, s
+    24 00000005 BF[0A000000]                    mov edi, d 
+    25 0000000A B905000000                      mov ecx, len 
+    26 0000000F FC                              cld 
+    27                                  
+    28                                  iter:
+    29 00000010 66AD                        lodsw
+    30 00000012 88E3                        mov bl, ah          ; Save high byte in BL
+    31                                  
+    32 00000014 88E0                        mov al, ah         ; high byte in AL
+    33 00000016 B400                        mov ah, 0
+    34 00000018 8A15[0F000000]              mov dl, [divisor]
+    35 0000001E F6F2                        div dl              ; remainder in AH
+    36                                  
+    37 00000020 80FC00                      cmp ah, 0
+    38 00000023 7503                        jne final 
+    39                                  
+    40 00000025 88D8                        mov al, bl          ; restore original high byte
+    41 00000027 AA                          stosb
+    42                                  
+    43                                      final:
+    44 00000028 E2E6                            loop iter 
+    45                                      
+    46                                          ; exit(0)
+    47 0000002A 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    48 0000002C FF15[00000000]                  call    [exit]       ; call exit to terminate the program

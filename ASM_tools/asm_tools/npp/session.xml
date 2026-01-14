@@ -1,8 +1,8 @@
 <NotepadPlus>
     <Session activeView="0">
         <mainView activeIndex="1">
-            <File firstVisibleLine="23" xOffset="0" scrollWidth="1989" startPos="1462" endPos="1462" selMode="0" lang="Assembly" encoding="-1" filename="D:\facultate\second_year\asc\problems\lab3\hw.asm" backupFilePath="" originalFileLastModifTimestamp="1763643640" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="3145827" mapWrapIndentMode="-1" mapIsWrap="no" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="1989" startPos="685" endPos="685" selMode="0" lang="Assembly" encoding="-1" filename="D:\facultate\second_year\asc\problems\test.asm" backupFilePath="" originalFileLastModifTimestamp="1764146260" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="1149173760" mapWrapIndentMode="-1" mapIsWrap="no" />
+            <File firstVisibleLine="44" xOffset="0" scrollWidth="1" startPos="1817" endPos="1817" selMode="0" lang="Assembly" encoding="-1" filename="D:\facultate\second_year\asc\problems\lab5\a12.asm" backupFilePath="" originalFileLastModifTimestamp="1766061372" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="7077993" mapWrapIndentMode="-1" mapIsWrap="no" />
+            <File firstVisibleLine="9" xOffset="0" scrollWidth="2280" startPos="793" endPos="793" selMode="0" lang="Assembly" encoding="65001" filename="D:\facultate\second_year\asc\problems\lab5\b7.asm" backupFilePath="" originalFileLastModifTimestamp="1766056493" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="7077993" mapWrapIndentMode="-1" mapIsWrap="no" />
         </mainView>
         <subView activeIndex="0" />
     </Session>
